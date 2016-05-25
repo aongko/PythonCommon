@@ -1,6 +1,7 @@
 import unittest
 from notifier.slacknotifier import SlackNotifier
 
+
 class TestSlackNotifier(unittest.TestCase):
 
     def test_check_url(self):

@@ -1,6 +1,7 @@
 import unittest
 from text_processing.languagedetector import LanguageDetector
 
+
 class TestLanguageDetector(unittest.TestCase):
 
     def setUp(self):
@@ -13,6 +14,10 @@ class TestLanguageDetector(unittest.TestCase):
     def test_detect_en(self):
         lang = self.langdetector.detect("Just another text to be detected.")
         self.assertEqual("en", lang)
+
+    def test_detect_empty_string(self):
+        lang = self.langdetector.detect("")
+        self.assertIsNone(lang)
 
 if __name__ == '__main__':
     unittest.main()
