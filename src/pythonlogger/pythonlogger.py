@@ -16,14 +16,14 @@ def setup_logging(level="DEBUG",
     if not os.path.exists(base_dir + directory):
         os.makedirs(base_dir + directory)
 
-    format = '%(asctime)s-[%(levelname)-8s]-%(name)-30s: %(message)s'
+    fmt = '%(asctime)s-[%(levelname)-8s]-%(name)-30s: %(message)s'
 
     log_config = {
         'version': 1,
         'disable_existing_loggers': False,
         'formatters': {
             'standard': {
-                'format': format
+                'format': fmt
             },
         },
         'handlers': {
