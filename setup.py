@@ -10,27 +10,28 @@ REQUIRED_PACKAGES = [
     "requests==2.9.1"
 ]
 
+
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name = "PythonCommon",
-    version = _VERSION,
+    name="PythonCommon",
+    version=_VERSION,
 
-    author = "Andrew Ongko",
-    author_email = "Andrew.Ongko@gmail.com",
+    author="Andrew Ongko",
+    author_email="Andrew.Ongko@gmail.com",
 
-    url = "https://github.com/aongko/PythonCommon",
-    description = "some basic functionality for python apps",
-    long_description = read("README.md"),
-    keywords = "python",
+    url="https://github.com/aongko/PythonCommon",
+    description="some basic functionality for python apps",
+    long_description=read("README.md"),
+    keywords="python",
 
-    license = "MIT License",
+    license="MIT License",
 
     packages=find_packages('src', exclude=['contrib', 'docs', 'tests']),
-    package_dir = {'': 'src'},
+    package_dir={'': 'src'},
 
-    classifiers = [
+    classifiers=[
         "Development Status :: 3 - Alpha",
         # "Development Status :: 4 - Beta",
         # "Development Status :: 5 - Production/Stable",
@@ -44,5 +45,5 @@ setup(
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
     ],
-    install_requires = REQUIRED_PACKAGES
+    install_requires=REQUIRED_PACKAGES
 )
