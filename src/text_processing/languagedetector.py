@@ -1,19 +1,29 @@
 import langdetect
+from langdetect.lang_detect_exception import LangDetectException
 
 
-class LanguageDetector():
+class LanguageDetector(object):
     """Implementation using langdetect 1.0.6."""
 
-    def detect(self, text):
-        """Returns string of the language id (en, id)
+    @staticmethod
+    def detect(text):
+        """Returns string of the language id (en, id).
+        Returns None if exception is caught.
         Override this method in the subclass(es).
 
         """
-        return langdetect.detect(text)
+        try:
+            return langdetect.detect(text)
+        except LangDetectException:
+            return None
 
-    def detect_languages(self, text):
+    @staticmethod
+    def detect_languages(text):
         """Detect the probabilities for the top languages
         Override this method in the subclass(es).
 
         """
-        return langdetect.detect_langs(text)
+        try:
+            return langdetect.detect_langs(text)
+        except LangDetectException:
+            return None
