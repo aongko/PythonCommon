@@ -14,18 +14,19 @@ To install, run:
 For database connection to MongoDB using PyMongo:
 
 ```python
-
+  >>> from databasefunction import MongoConfig
+  >>> mongo_config = MongoConfig(host="172.0.0.1", port=27017, database="database_name")
   >>> from databasefunction import MongoConnect
-  >>> mongo = MongoConnect("127.0.0.1", 27017, "database_name")
-
+  >>> mongo = MongoConnect(mongo_config)
 ```
 
 For database connection to MySQL using PyMySQL:
 
 ```python
+  >>> from databasefunction import MysqlConfig
+  >>> mysql_config = MysqlConfig(host="127.0.0.1", port=3306, username="aongko", password="password", database="database_name")
   >>> from databasefunction import MysqlConnect
-  >>> mysql = MysqlConnect("127.0.0.1", 3306, "aongko", "password", "database_name")
-
+  >>> mysql = MysqlConnect(mysql_config)
 ```
 
 For logging setup:
@@ -38,16 +39,14 @@ For logging setup:
   ...               filename="logname")
   >>> import logging
   >>> logging.getLogger(__name__)
-
 ```
 
 For language detection:
 
 ```python
   >>> from text_processing import LanguageDetector
-  >>> LanguageDetector().detect("some text we want to know the language")
+  >>> LanguageDetector.detect("some text we want to know the language")
   'en'
-
 ```
 
 For Slack notifier:
@@ -56,5 +55,4 @@ For Slack notifier:
   >>> from notifier import SlackNotifier
   >>> notifier = SlackNotifier(url="some_valid_url", channel="#channel-name", username="username", debug=False)
   >>> notifier.notify("some message")
-
 ```
