@@ -1,7 +1,7 @@
 import os
 from setuptools import setup, find_packages
 
-_VERSION = "1.0.1"
+_VERSION = "2.0.0"
 
 REQUIRED_PACKAGES = [
     "langdetect==1.0.5",
