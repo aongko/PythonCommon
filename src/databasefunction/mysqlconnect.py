@@ -3,11 +3,10 @@ import pymysql
 from .mysqlconfig import MysqlConfig
 
 
-class MysqlConnect(object):
+class MysqlConnect:
     """Maintaining some basic functions for PyMySQL"""
-    def __init__(self, mysql_config=MysqlConfig()):
-        super(MysqlConnect, self).__init__()
 
+    def __init__(self, mysql_config=MysqlConfig()):
         self.LOG = logging.getLogger(self.__class__.__name__)
 
         self.mysql_config = mysql_config

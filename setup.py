@@ -1,18 +1,19 @@
 import os
 from setuptools import setup, find_packages
 
-_VERSION = "2.0.0"
+_VERSION = "2.1.0"
 
 REQUIRED_PACKAGES = [
-    "langdetect==1.0.5",
+    "langdetect==1.0.6",
     "pymongo==3.2.2",
-    "PyMySQL==0.7.2",
-    "requests==2.9.1"
+    "PyMySQL==0.7.4",
+    "redis==2.10.5",
+    "requests==2.10.0"
 ]
 
 
-def read(fname):
-    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+def read(filename):
+    return open(os.path.join(os.path.dirname(__file__), filename)).read()
 
 setup(
     name="PythonCommon",
@@ -32,9 +33,9 @@ setup(
     package_dir={'': 'src'},
 
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        # "Development Status :: 3 - Alpha",
         # "Development Status :: 4 - Beta",
-        # "Development Status :: 5 - Production/Stable",
+        "Development Status :: 5 - Production/Stable",
         # "Development Status :: 6 - Mature",
         # "Development Status :: 7 - Inactive",
 

@@ -3,12 +3,10 @@ from pymongo import MongoClient
 from .mongoconfig import MongoConfig
 
 
-class MongoConnect(object):
+class MongoConnect:
     """Maintaining some basic functions for pymongo"""
 
     def __init__(self, mongo_config=MongoConfig()):
-        super(MongoConnect, self).__init__()
-
         self.LOG = logging.getLogger(self.__class__.__name__)
 
         self.mongo_config = mongo_config
@@ -99,9 +97,10 @@ class MongoConnect(object):
         """
         `data` must be a tuple.
         example:
-        >>> data = [
-        ...     ({"_id": 1}, {"$set": {"name": "Andrew"}}),
-        ...     ({"_id": 2}, {"$set": {"age": 17}})]
+
+        data = [
+           ({"_id": 1}, {"$set": {"name": "Andrew"}}),
+           ({"_id": 2}, {"$set": {"age": 17}})]
 
         """
         self.LOG.info("Doing bulk upsert to %s", collection)
@@ -128,3 +127,10 @@ class MongoConnect(object):
             res = db[collection].remove(query)
 
             return res
+
+    def aggregate(self, collection, pipeline):
+        with MongoClient(host=self.mongo_config.host,
+                         port=self.mongo_config.port) as client:
+            db = client[self.mongo_config.database]
+            res = db[collection].aggregate(pipeline)
+            return list(res)

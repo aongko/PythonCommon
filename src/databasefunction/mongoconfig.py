@@ -1,4 +1,4 @@
-class MongoConfig(object):
+class MongoConfig:
     """config to be used alongside MongoConnect"""
 
     DEFAULT_HOST = "127.0.0.1"
@@ -10,7 +10,6 @@ class MongoConfig(object):
 
     def __init__(self, host=None, port=None, database=None,
                  username=None, password=None, mechanism=None):
-        super(MongoConfig, self).__init__()
         self.host = host if host else self.DEFAULT_HOST
         self.port = port if port else self.DEFAULT_PORT
         self.database = database if database else self.DEFAULT_DATABASE
