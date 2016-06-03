@@ -32,7 +32,8 @@ def setup_logging(level="DEBUG",
                 'class': 'logging.handlers.TimedRotatingFileHandler',
                 'filename': filename,
                 'when': 'midnight',
-                'formatter': 'standard'
+                'formatter': 'standard',
+                'encoding': 'utf-8'
             },
         },
         'loggers': {
