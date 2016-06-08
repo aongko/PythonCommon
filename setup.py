@@ -1,14 +1,14 @@
 import os
 from setuptools import setup, find_packages
 
-_VERSION = "2.1.1"
+_VERSION = "2.1.2"
 
 REQUIRED_PACKAGES = [
-    "langdetect==1.0.6",
-    "pymongo==3.2.2",
-    "PyMySQL==0.7.4",
-    "redis==2.10.5",
-    "requests==2.10.0"
+    "langdetect>=1.0.6",
+    "pymongo>=3.2.2",
+    "PyMySQL>=0.7.4",
+    "redis>=2.10.5",
+    "requests>=2.10.0"
 ]
 
 

@@ -124,7 +124,7 @@ class MongoConnect:
                          port=self.mongo_config.port) as client:
             db = client[self.mongo_config.database]
 
-            res = db[collection].remove(query)
+            res = db[collection].delete_many(query)
 
             return res
 
