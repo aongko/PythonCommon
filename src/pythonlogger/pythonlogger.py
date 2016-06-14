@@ -16,13 +16,10 @@ def setup_logging(level="DEBUG",
     if base_dir is None:
         base_dir = ""
 
-    if not base_dir.endswith('/'):
-        base_dir += "/"
+    filename = os.path.join(base_dir, directory, filename + ".log")
 
-    filename = base_dir + directory + "/" + filename + ".log"
-
-    if not os.path.exists(base_dir + directory):
-        os.makedirs(base_dir + directory)
+    if not os.path.exists(os.path.join(base_dir, directory)):
+        os.makedirs(os.path.join(base_dir, directory))
 
     fmt = '%(asctime)s-[%(levelname)-8s]-%(name)-30s: %(message)s'
     if log_format is not None:
