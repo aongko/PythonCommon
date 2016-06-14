@@ -4,12 +4,20 @@ import os
 
 def setup_logging(level="DEBUG",
                   base_dir=None, directory="log",
-                  filename=None):
+                  filename=None, log_format=None, log_config=None):
+    """
+    A convenient way to configure your logger.
+
+    """
+
     if filename is None:
         filename = "log"
 
     if base_dir is None:
         base_dir = ""
+
+    if not base_dir.endswith('/'):
+        base_dir += "/"
 
     filename = base_dir + directory + "/" + filename + ".log"
 
@@ -17,8 +25,10 @@ def setup_logging(level="DEBUG",
         os.makedirs(base_dir + directory)
 
     fmt = '%(asctime)s-[%(levelname)-8s]-%(name)-30s: %(message)s'
+    if log_format is not None:
+        fmt = log_format
 
-    log_config = {
+    configured_log_config = {
         'version': 1,
         'disable_existing_loggers': False,
         'formatters': {
@@ -44,4 +54,8 @@ def setup_logging(level="DEBUG",
             }
         }
     }
-    logging.config.dictConfig(log_config)
+
+    if log_config is not None:
+        configured_log_config = log_config
+
+    logging.config.dictConfig(configured_log_config)
