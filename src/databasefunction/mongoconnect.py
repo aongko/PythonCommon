@@ -64,7 +64,7 @@ class MongoConnect:
                          port=self.mongo_config.port) as client:
             db = client[self.mongo_config.database]
             res = db[collection].find_one({"_id": _id})
-            return list(res)
+            return res
 
     def insert(self, collection, data):
         self.LOG.debug(
