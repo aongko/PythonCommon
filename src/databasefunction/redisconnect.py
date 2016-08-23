@@ -16,5 +16,5 @@ class RedisConnect:
     def get(self, key):
         return self.redis.get(key)
 
-    def set(self, key, value):
-        return self.redis.set(key, value)
+    def set(self, key, value, ex=None, px=None, nx=False, xx=False):
+        return self.redis.set(key, value, ex, px, nx, xx)
